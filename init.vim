@@ -19,7 +19,6 @@ set noswapfile
 set background=dark
 
 syntax enable
-filetype plugin indent on
 colorscheme iceberg
 
 tnoremap <C-t> <C-\><C-n><C-w>k
@@ -57,4 +56,5 @@ let g:eskk#marker_henkan_select = "[選択]"
 let g:eskk#marker_okuri = "[送り]"
 let g:eskk#marker_jisyo_touroku = "[辞書]"
 
-
+autocmd BufRead,BufNewFile *.saty,*.satyh,*satyh-*,*.satyg setlocal filetype=satysfi
+filetype plugin indent on

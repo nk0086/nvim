@@ -1,5 +1,5 @@
 {
-  "rust-analyzer.enable": true,
+  "rust-analyzer.enable":true,
   "languageserver": {
     "satysfi-ls": {
         "command": "satysfi-language-server",
