@@ -29,13 +29,14 @@ nnoremap <C-t> <C-w>ji
 "plugin + settings 
 call jetpack#begin()
 call jetpack#add('Shougo/neosnippet.vim')
-call jetpack#add('Shoug/neosnippet-snippets')
+call jetpack#add('Shougo/neosnippet-snippets')
 call jetpack#add('neoclide/coc.nvim')
 call jetpack#add('cocopon/iceberg.vim')
 call jetpack#add('vim-skk/eskk.vim')
 call jetpack#add('rust-lang/rust.vim')
 call jetpack#add('cohama/lexima.vim')
 call jetpack#add('qnighy/satysfi.vim')
+call jetpack#add('alaviss/nim.nvim')
 call jetpack#end()
 
 "rust.vim
@@ -55,6 +56,10 @@ let g:eskk#egg_like_newline = 1
 let g:eskk#marker_henkan_select = "[選択]"
 let g:eskk#marker_okuri = "[送り]"
 let g:eskk#marker_jisyo_touroku = "[辞書]"
+"vimspector
+
+
 
 autocmd BufRead,BufNewFile *.saty,*.satyh,*satyh-*,*.satyg setlocal filetype=satysfi
 filetype plugin indent on
+
