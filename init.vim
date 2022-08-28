@@ -1,4 +1,19 @@
+"plugin + settings 
+call jetpack#begin()
+call jetpack#add('Shougo/neosnippet.vim')
+call jetpack#add('Shougo/neosnippet-snippets')
+call jetpack#add('neoclide/coc.nvim')
+call jetpack#add('cocopon/iceberg.vim')
+call jetpack#add('rebelot/kanagawa.nvim')
+call jetpack#add('vim-skk/eskk.vim')
+call jetpack#add('rust-lang/rust.vim')
+call jetpack#add('cohama/lexima.vim')
+call jetpack#add('qnighy/satysfi.vim')
+call jetpack#add('alaviss/nim.nvim')
+call jetpack#end()
+
 command! Config :e $MYVIMRC
+command! Judge :! cargo-judge -t %
 command! Source :source $MYVIMRC
 command! MakeSnippet :!cargo snippet % > ~/.config/nvim/neosnippet-snippet/rust/%<.snip
 
@@ -9,9 +24,10 @@ command! Submit :!cargo compete s %<
 
 inoremap <C-f> <C-g>U<ESC><S-a>
 nnoremap ; :
+set foldmethod=manual
 set number
 set smartindent
-set shiftwidth=2
+set shiftwidth=4
 set autochdir
 set encoding=utf-8
 set wildmenu
@@ -19,25 +35,11 @@ set noswapfile
 set background=dark
 
 syntax enable
-colorscheme iceberg
+colorscheme kanagawa
 
 tnoremap <C-t> <C-\><C-n><C-w>k
 nnoremap <C-t> <C-w>ji
 
-
-
-"plugin + settings 
-call jetpack#begin()
-call jetpack#add('Shougo/neosnippet.vim')
-call jetpack#add('Shougo/neosnippet-snippets')
-call jetpack#add('neoclide/coc.nvim')
-call jetpack#add('cocopon/iceberg.vim')
-call jetpack#add('vim-skk/eskk.vim')
-call jetpack#add('rust-lang/rust.vim')
-call jetpack#add('cohama/lexima.vim')
-call jetpack#add('qnighy/satysfi.vim')
-call jetpack#add('alaviss/nim.nvim')
-call jetpack#end()
 
 "rust.vim
 let g:rustfmt_autosave=1
@@ -48,6 +50,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 "eskk.vim
 let g:eskk#directory = "~/.config/eskk"
 let g:eskk#dictionary = { 'path': "~/.config/eskk/my_jisyo", 'sorted': 1, 'encoding': 'utf-8',}
