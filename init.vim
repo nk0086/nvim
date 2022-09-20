@@ -62,7 +62,9 @@ let g:eskk#egg_like_newline = 1
 let g:eskk#marker_henkan_select = "[選択]"
 let g:eskk#marker_okuri = "[送り]"
 let g:eskk#marker_jisyo_touroku = "[辞書]"
-"vimspector
+
+"github copilot
+ let g:copilot_node_command = "~/.nodenv/versions/17.9.1/bin/node"
 
 
 
