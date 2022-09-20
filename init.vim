@@ -10,9 +10,11 @@ call jetpack#add('rust-lang/rust.vim')
 call jetpack#add('cohama/lexima.vim')
 call jetpack#add('qnighy/satysfi.vim')
 call jetpack#add('alaviss/nim.nvim')
+call jetpack#add('github/copilot.vim')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
+command! I3 :e $HOME/.config/i3/config
 command! Judge :! cargo-judge -t %
 command! Source :source $MYVIMRC
 command! MakeSnippet :!cargo snippet % > ~/.config/nvim/neosnippet-snippet/rust/%<.snip
@@ -66,4 +68,17 @@ let g:eskk#marker_jisyo_touroku = "[辞書]"
 
 autocmd BufRead,BufNewFile *.saty,*.satyh,*satyh-*,*.satyg setlocal filetype=satysfi
 filetype plugin indent on
+
+
+command! ToSnippet call ToSnippet()
+function! ToSnippet() abort
+    let save_to_path = "$HOME/.config/nvim/neosnippet-snippet/"
+    let file_path = expand("%")
+    let file_extention = expand("%:e")
+
+    let lines = readfile(file_path)
+    for i in range(1, 5)
+	echo lines[i - 1]
+    endfor
+endfunction
 
