@@ -11,6 +11,8 @@ call jetpack#add('cohama/lexima.vim')
 call jetpack#add('qnighy/satysfi.vim')
 call jetpack#add('alaviss/nim.nvim')
 call jetpack#add('github/copilot.vim')
+call jetpack#add('vim-airline/vim-airline')
+call jetpack#add('vim-airline/vim-airline-themes')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
