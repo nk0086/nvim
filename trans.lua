@@ -1,20 +1,22 @@
-"plugin + settings 
-call jetpack#begin()
-call jetpack#add('Shougo/neosnippet.vim')
-call jetpack#add('Shougo/neosnippet-snippets')
-call jetpack#add('neoclide/coc.nvim')
-call jetpack#add('cocopon/iceberg.vim')
-call jetpack#add('rebelot/kanagawa.nvim')
-call jetpack#add('vim-skk/eskk.vim')
-call jetpack#add('rust-lang/rust.vim')
-call jetpack#add('cohama/lexima.vim')
-call jetpack#add('qnighy/satysfi.vim')
-call jetpack#add('alaviss/nim.nvim')
-call jetpack#add('github/copilot.vim')
-call jetpack#add('vim-airline/vim-airline')
-call jetpack#add('vim-airline/vim-airline-themes')
-call jetpack#end()
+-- plugin 
+-- jetpack.vim
+require'jetpack'.startup(function(use)
+  use 'Shougo/neosnippet.vim'
+  use 'Shougo/neosnippet-snippets'
+  use 'neoclide/coc.nvim'
+  use 'cocopon/iceberg.vim'
+  use 'rebelot/kanagawa.nvim'
+  use 'vim-skk/eskk.vim'
+  use 'rust-lang/rust.vim'
+  use 'cohama/lexima.vim'
+  use 'qnighy/satysfi.vim'
+  use 'alaviss/nim.nvim'
+  use 'github/copilot.vim'
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+end)
 
+--- まだ
 command! Config :e $MYVIMRC
 command! I3 :e $HOME/.config/i3/config
 command! Judge :! cargo-judge -t %
@@ -76,7 +78,7 @@ filetype plugin indent on
 
 command! ToSnippet call ToSnippet()
 function! ToSnippet() abort
-    let save_to_path = $HOME."/.config/nvim/neosnippet-snippet/"
+    let save_to_path = "~/.config/nvim/neosnippet-snippet/"
     let file_path = expand("%")
     let file_extention = expand("%:e")
 
@@ -101,9 +103,11 @@ function! ToSnippet() abort
 	    let snippet += ["    ".lines[i]]
 	endif
     endfor
+    echo snippet_name
 
     let file_name = save_to_path."python/".snippet_name.".snip"   
     " write to file from snippet
     call writefile(snippet, file_name)
+    "echo file_name
 endfunction
 
