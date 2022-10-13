@@ -5,16 +5,17 @@
         "command": "satysfi-language-server",
         "args": [],
         "filetypes": ["satysfi"]
+	}
     },
+
     "nim": {
       "command": "nimlsp",
       "filetypes": ["nim", "nimble"],
       "args": [
 	"/home/nkpr/.choosenim/toolchains/nim-1.6.6"
       ]
-    }
-  },
-
+    },
+  
   "coc.preferences.formatOnSaveFiletypes": [
     "go"
   ],
