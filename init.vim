@@ -77,3 +77,9 @@ let g:eskk#marker_jisyo_touroku = "[辞書]"
 autocmd BufRead,BufNewFile *.saty,*.satyh,*satyh-*,*.satyg setlocal filetype=satysfi
 filetype plugin indent on
 
+command! Preview call Preview()
+function! Preview() abort
+    let file = expand('%:p')
+    :!satysfi % > /dev/null
+    :!xdg-open %<.pdf
+endfunction
