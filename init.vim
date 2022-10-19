@@ -17,6 +17,10 @@ call jetpack#add('junegunn/fzf')
 call jetpack#add('junegunn/fzf.vim')
 call jetpack#add('nk0086/tosnippet.vim')
 call jetpack#add('mattn/vim-maketabel')
+call jetpack#add('tpope/vim-fugitive')
+call jetpack#add('airblade/vim-gitgutter')
+call jetpack#add('fatih/vim-go')
+call jetpack#add('lukas-reineke/indent-blankline.nvim')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
@@ -41,6 +45,7 @@ set encoding=utf-8
 set wildmenu
 set noswapfile
 set background=dark
+set list listchars=trail:.
 
 syntax enable
 colorscheme kanagawa
@@ -81,5 +86,5 @@ command! Preview call Preview()
 function! Preview() abort
     let file = expand('%:p')
     :!satysfi % > /dev/null
-    :!xdg-open %<.pdf
+    ":!xdg-open %<.pdf
 endfunction
