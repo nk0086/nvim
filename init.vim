@@ -57,7 +57,7 @@ nnoremap <C-t> <C-w>ji
 "rust.vim
 let g:rustfmt_autosave=1
 "neosnippet.vim
-let g:neosnippet#snippets_directory=$HOME."~/.config/nvim/neosnippet-snippet/"
+let g:neosnippet#snippets_directory=$HOME."/.config/nvim/neosnippet-snippet/"
 "coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
