@@ -18,6 +18,7 @@ call jetpack#add('junegunn/fzf.vim')
 call jetpack#add('nk0086/tosnippet.vim')
 call jetpack#add('mattn/vim-maketabel')
 call jetpack#add('tpope/vim-fugitive')
+call jetpack#add('tpope/vim-surround')
 call jetpack#add('airblade/vim-gitgutter')
 call jetpack#add('fatih/vim-go')
 call jetpack#add('lukas-reineke/indent-blankline.nvim')
@@ -76,8 +77,8 @@ let g:eskk#marker_jisyo_touroku = "[辞書]"
 
 "github copilot
  let g:copilot_node_command = $HOME."/.nodenv/versions/17.9.1/bin/node"
-
-
+"ToSnipet
+let g:tosnippet#save_directory = $HOME."/.config/nvim/neosnippet-snippet/"
 
 autocmd BufRead,BufNewFile *.saty,*.satyh,*satyh-*,*.satyg setlocal filetype=satysfi
 filetype plugin indent on
