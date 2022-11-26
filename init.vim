@@ -26,14 +26,14 @@ call jetpack#end()
 
 command! Config :e $MYVIMRC
 command! I3 :e $HOME/.config/i3/config
-command! Judge :! cargo-judge -t %
 command! Source :source $MYVIMRC
 command! MakeSnippet :!cargo snippet % > $HOME/.config/nvim/neosnippet-snippet/rust/%<.snip
 
 "competitive programming {
-command! Test :!cargo compete t %<
-command! Submit :!cargo compete s %<
+command! Test :!sh $HOME/.config/nvim/atcoder-tools/test.sh %< %:e
+command! Submit :!sh $HOME/.config/nvim/atcoder-tools/submit.sh %< %:e
 "}
+
 
 inoremap <C-f> <C-g>U<ESC><S-a>
 nnoremap ; :
@@ -46,7 +46,7 @@ set encoding=utf-8
 set wildmenu
 set noswapfile
 set background=dark
-set list listchars=trail:.
+set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,nbsp:.
 
 syntax enable
 colorscheme kanagawa
@@ -89,3 +89,4 @@ function! Preview() abort
     :!satysfi % > /dev/null
     ":!xdg-open %<.pdf
 endfunction
+
