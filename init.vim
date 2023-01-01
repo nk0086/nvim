@@ -22,6 +22,8 @@ call jetpack#add('tpope/vim-surround')
 call jetpack#add('airblade/vim-gitgutter')
 call jetpack#add('fatih/vim-go')
 call jetpack#add('lukas-reineke/indent-blankline.nvim')
+call jetpack#add('lambdalisue/gina.vim')
+call jetpack#add('mattn/emmet-vim')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
@@ -30,6 +32,8 @@ command! Source :source $MYVIMRC
 command! MakeSnippet :!cargo snippet % > $HOME/.config/nvim/neosnippet-snippet/rust/%<.snip
 
 "competitive programming {
+command! Rtest :!cargo compete test %<
+command! Rsub :!cargo compete submit %<
 command! Test :!sh $HOME/.config/nvim/atcoder-tools/test.sh %< %:e
 command! Submit :!sh $HOME/.config/nvim/atcoder-tools/submit.sh %< %:e
 "}
@@ -89,4 +93,8 @@ function! Preview() abort
     :!satysfi % > /dev/null
     ":!xdg-open %<.pdf
 endfunction
+
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,eruby EmmetInstall
 
