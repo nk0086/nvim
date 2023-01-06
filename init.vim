@@ -32,10 +32,10 @@ command! Source :source $MYVIMRC
 command! MakeSnippet :!cargo snippet % > $HOME/.config/nvim/neosnippet-snippet/rust/%<.snip
 
 "competitive programming {
-command! Rtest :!cargo compete test %<
-command! Rsub :!cargo compete submit %<
+command! TestR :!cargo compete test %<
+command! SubR :!cargo compete submit %<
 command! Test :!sh $HOME/.config/nvim/atcoder-tools/test.sh %< %:e
-command! Submit :!sh $HOME/.config/nvim/atcoder-tools/submit.sh %< %:e
+command! Sub :!sh $HOME/.config/nvim/atcoder-tools/submit.sh %< %:e
 "}
 
 
