@@ -1,5 +1,6 @@
 "plugin + settings 
 call jetpack#begin()
+call jetpack#add('tani/vim-jetpack')
 call jetpack#add('Shougo/neosnippet.vim')
 call jetpack#add('Shougo/neosnippet-snippets')
 call jetpack#add('neoclide/coc.nvim')
@@ -32,10 +33,8 @@ command! Source :source $MYVIMRC
 command! MakeSnippet :!cargo snippet % > $HOME/.config/nvim/neosnippet-snippet/rust/%<.snip
 
 "competitive programming {
-command! TestR :!cargo compete test %<
-command! SubR :!cargo compete submit %<
-command! Test :!sh $HOME/.config/nvim/atcoder-tools/test.sh %< %:e
-command! Sub :!sh $HOME/.config/nvim/atcoder-tools/submit.sh %< %:e
+command! Test :!cargo compete test %<
+command! Sub :!cargo compete submit %<
 "}
 
 
