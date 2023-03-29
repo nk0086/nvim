@@ -61,7 +61,7 @@ nnoremap <C-t> <C-w>ji
 "rust.vim
 let g:rustfmt_autosave=1
 "neosnippet.vim
-let g:neosnippet#snippets_directory=$HOME."/.config/nvim/neosnippet-snippet/"
+let g:neosnippet#snippets_directory = $HOME."/.config/nvim/neosnippet-snippet/"
 "coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -79,7 +79,7 @@ let g:eskk#marker_okuri = "[送り]"
 let g:eskk#marker_jisyo_touroku = "[辞書]"
 
 "github copilot
- let g:copilot_node_command = $HOME."/.nodenv/versions/17.9.1/bin/node"
+let g:copilot_node_command = "/usr/bin/node"
 "ToSnipet
 let g:tosnippet#save_directory = $HOME."/.config/nvim/neosnippet-snippet/"
 
