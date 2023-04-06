@@ -12,8 +12,6 @@ call jetpack#add('cohama/lexima.vim')
 call jetpack#add('qnighy/satysfi.vim')
 call jetpack#add('alaviss/nim.nvim')
 call jetpack#add('github/copilot.vim')
-call jetpack#add('vim-airline/vim-airline')
-call jetpack#add('vim-airline/vim-airline-themes')
 call jetpack#add('junegunn/fzf')
 call jetpack#add('junegunn/fzf.vim')
 call jetpack#add('nk0086/tosnippet.vim')
@@ -25,6 +23,8 @@ call jetpack#add('fatih/vim-go')
 call jetpack#add('lukas-reineke/indent-blankline.nvim')
 call jetpack#add('lambdalisue/gina.vim')
 call jetpack#add('mattn/emmet-vim')
+call jetpack#add('chrisbra/csv.vim')
+call jetpack#add('mattn/vim-chatgpt')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
@@ -46,6 +46,7 @@ set smartindent
 set shiftwidth=4
 set autochdir
 set encoding=utf-8
+set termencoding=utf-8
 set wildmenu
 set noswapfile
 set background=dark
@@ -56,7 +57,6 @@ colorscheme kanagawa
 
 tnoremap <C-t> <C-\><C-n><C-w>k
 nnoremap <C-t> <C-w>ji
-
 
 "rust.vim
 let g:rustfmt_autosave=1
