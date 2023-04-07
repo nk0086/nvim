@@ -20,8 +20,23 @@
     "go"
   ],
 
+
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=88", "--import-order-style=google"],
   "python.linting.enabled": true,
-  "python.linging.linter": "pylint",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length=88"],
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  "python.sortImports.args": ["--profile=black"],
+  "python.pythonPath": "python3",
+  "pyright.organizeImports.provider": "isort",
+  "coc.source.organizeImports.filetypes": ["python"],
+  "[python]": {
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+  },
+  
 
   "suggest.completionItemKindLabels": {
     "function": "\uf794",
