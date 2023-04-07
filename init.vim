@@ -24,7 +24,6 @@ call jetpack#add('lukas-reineke/indent-blankline.nvim')
 call jetpack#add('lambdalisue/gina.vim')
 call jetpack#add('mattn/emmet-vim')
 call jetpack#add('chrisbra/csv.vim')
-call jetpack#add('mattn/vim-chatgpt')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
@@ -68,6 +67,19 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+#ALE settings
+let g:ale_linters = {
+    'python': ['flake8'],
+}
+let g:ale_fixers = {
+    'python': ['black'],
+}
+let g:ale_python_flake8_executable = 'flake8'
+let g:ale_python_black_executable = 'black'
+let g:ale_fix_on_save = 1
+
+
 
 "eskk.vim
 let g:eskk#directory = $HOME."/.config/eskk"
