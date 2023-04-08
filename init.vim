@@ -24,6 +24,7 @@ call jetpack#add('lukas-reineke/indent-blankline.nvim')
 call jetpack#add('lambdalisue/gina.vim')
 call jetpack#add('mattn/emmet-vim')
 call jetpack#add('chrisbra/csv.vim')
+call jetpack#add('jeetsukumaran/vim-indentwise')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
@@ -36,9 +37,11 @@ command! Test :!cargo compete test %<
 command! Sub :!cargo compete submit %<
 "}
 
-
 inoremap <C-f> <C-g>U<ESC><S-a>
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
 nnoremap ; :
+
 set foldmethod=manual
 set number
 set smartindent
@@ -70,8 +73,8 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 "eskk.vim
 let g:eskk#directory = $HOME."/.config/eskk"
-let g:eskk#dictionary = { 'path': $HOME."/.config/eskk/my_jisyo", 'sorted': 1, 'encoding': 'utf-8',}
-let g:eskk#large_dictionary = {'path': $HOME."/.config/eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp',}
+let g:eskk#dictionary = { 'path': g:eskk#directory."/my_jisyo", 'sorted': 1, 'encoding': 'utf-8',}
+let g:eskk#default_dictionary_path = { 'path': g:eskk#directory."/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp',}
 let g:eskk#egg_like_newline = 1
 let g:eskk#marker_henkan_select = "[選択]"
 let g:eskk#marker_okuri = "[送り]"
