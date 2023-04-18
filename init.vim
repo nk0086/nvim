@@ -111,6 +111,22 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <leader>r :Rg<CR>
 
+"gina
+nnoremap <silent> <leader>gl :!git gl -100<CR>
+nnoremap <silent> <leader>gL :Gina log --graph -100<CR>
+nnoremap <silent> <leader>gd :!git diff<CR>
+nnoremap <silent> <leader>gs :!git status<CR>
+nnoremap <leader>gbb :call popup_atcursor(systemlist('git branch'), #{ moved: "any", border: [], minwidth: &columns/3, minheight: &lines/4 })<CR>
+nnoremap <leader>gp :!git push origin main 
+nnoremap <leader>oG :Gina browse :<CR>
+xnoremap <leader>oG :Gina browse :<CR>
+nnoremap <leader>gg :Gina log -p -G""<Left>
+
+nnoremap <leader>gn :!git commit -a -m ""<Left>
+nnoremap <silent> <leader>gu :silent !git add -u<CR>
+nnoremap <silent> <leader>gc :!git commit -v<CR>
+nnoremap <silent> <leader>ga :!git add %<CR>
+
 "winresizer
 nnoremap <silent> <C-r> :WinResizerStartResize<CR>
 
@@ -132,4 +148,3 @@ endfunction
 
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,eruby EmmetInstall
-
