@@ -15,10 +15,14 @@
     	
     "nim": {
 	"command": "nimlsp",
-    	"filetypes": ["nim", "nimble"],
-    	"args": [
-	     "$HOME/.choosenim/toolchains/nim-1.6.6"
-    	]
+	"args": [
+	    "$HOME/.choosenim/toolchains/nim-1.6.12"
+	],
+	"rootPatterns": [
+	    "src/",
+	    ".git/"
+	],
+    	"filetypes": ["nim", "nimble"]
     },
 
     "python.linting.flake8Enabled": true,
