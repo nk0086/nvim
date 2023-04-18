@@ -44,6 +44,10 @@ inoremap <C-f> <C-g>U<ESC><S-a>
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap ; :
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 set foldmethod=manual
 set number
@@ -106,6 +110,9 @@ nnoremap <silent> <leader>G :GFiles?<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <leader>r :Rg<CR>
+
+"winresizer
+nnoremap <silent> <C-r> :WinResizerStartResize<CR>
 
 "github copilot
 let g:copilot_node_command = "/usr/bin/node"
