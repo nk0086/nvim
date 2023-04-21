@@ -28,6 +28,7 @@ call jetpack#add('fatih/vim-go')
 call jetpack#add('lukas-reineke/indent-blankline.nvim')
 call jetpack#add('mattn/emmet-vim')
 call jetpack#add('chrisbra/csv.vim')
+call jetpack#add('gorodinskiy/vim-coloresque')
 call jetpack#end()
 
 command! Config :e $MYVIMRC
@@ -39,6 +40,9 @@ command! MakeSnippet :!cargo snippet % > $HOME/.config/nvim/neosnippet-snippet/r
 command! Test :!cargo compete test %<
 command! Sub :!cargo compete submit %<
 "}
+
+"satysfi
+command! Saty !satysfi % | wmctrl -a firefox && xdotool key "Ctrl+r"
 
 inoremap <C-f> <C-g>U<ESC><S-a>
 nnoremap <C-y> "+y
@@ -124,7 +128,6 @@ nnoremap <leader>gg :Gina log -p -G""<Left>
 
 nnoremap <leader>gn :!git commit -a -m ""<Left>
 nnoremap <silent> <leader>gu :silent !git add -u<CR>
-nnoremap <silent> <leader>gc :!git commit -v<CR>
 nnoremap <silent> <leader>ga :!git add %<CR>
 
 "winresizer
