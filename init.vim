@@ -1,21 +1,31 @@
 "plugin + settings 
 call jetpack#begin()
-" vim 
+"clolor scheme
+call jetpack#add('cocopon/iceberg.vim')
+call jetpack#add('rebelot/kanagawa.nvim')
+"vim 
 call jetpack#add('tani/vim-jetpack')
 call jetpack#add('Shougo/neosnippet.vim')
 call jetpack#add('Shougo/neosnippet-snippets')
 call jetpack#add('neoclide/coc.nvim')
-call jetpack#add('cocopon/iceberg.vim')
-call jetpack#add('rebelot/kanagawa.nvim')
 call jetpack#add('vim-skk/eskk.vim')
 call jetpack#add('simeji/winresizer')
 call jetpack#add('junegunn/fzf')
 call jetpack#add('junegunn/fzf.vim')
-call jetpack#add('tpope/vim-fugitive')
 call jetpack#add('tpope/vim-surround')
-call jetpack#add('airblade/vim-gitgutter')
 call jetpack#add('jeetsukumaran/vim-indentwise')
-call jetpack#add('lambdalisue/gina.vim')
+call jetpack#add('yutkat/history-ignore.vim')
+call jetpack#add('tyru/capture.vim')
+call jetpack#add('Vigemus/iron.nvim')
+call jetpack#add('Iambdalisue/readablefold.vim')
+"debug 
+call jetpack#add('sentriz/vim-print-debug')
+call jetpack#add('mfussenegger/nvim-dap')
+call jetpack#add('rcarriga/nvim-dap-ui')
+"git
+call jetpack#add('tpope/vim-fugitive')
+call jetpack#add('sindrets/diffview.nvim')
+call jetpack#add('nvim-lua/plenary.nvim')
 "language
 call jetpack#add('rust-lang/rust.vim')
 call jetpack#add('cohama/lexima.vim')
@@ -42,16 +52,24 @@ command! Sub :!cargo compete submit %<
 "}
 
 "satysfi
-command! Saty !satysfi % | wmctrl -a firefox && xdotool key "Ctrl+r"
+autocmd BufWritePost *.saty !satysfi % > /dev/null
 
 inoremap <C-f> <C-g>U<ESC><S-a>
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap ; :
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+
+" move window
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+tnoremap <C-t> <C-\><C-n><C-w>k
+nnoremap <C-t> <C-w>v
 
 set foldmethod=manual
 set number
@@ -67,9 +85,6 @@ set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<,nbsp:.
 
 syntax enable
 colorscheme kanagawa
-
-tnoremap <C-t> <C-\><C-n><C-w>k
-nnoremap <C-t> <C-w>ji
 
 "rust.vim
 let g:rustfmt_autosave=1
@@ -90,7 +105,7 @@ if executable("nim")
 endif
 
 "eskk.vim
-let g:eskk#directory = $HOME."/.config/eskk"
+let g:eskk#directory = "~/.config/eskk"
 let g:eskk#dictionary = { 'path': g:eskk#directory."/my_jisyo", 'sorted': 1, 'encoding': 'utf-8',}
 let g:eskk#default_dictionary_path = { 'path': g:eskk#directory."/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp',}
 let g:eskk#egg_like_newline = 1
@@ -109,32 +124,21 @@ let mapleader = "\<Space>"
 " <C-v> width
 " <C-x> height
 nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>r :Rg<CR>
 nnoremap <silent> <leader>g :GFiles<CR>
 nnoremap <silent> <leader>G :GFiles?<CR>
+nnoremap <silent> <leader>h :History:<CR>
+nnoremap <silent> <leader>c :Commands<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>h :History<CR>
-nnoremap <silent> <leader>r :Rg<CR>
-
-"gina
-nnoremap <silent> <leader>gl :!git gl -100<CR>
-nnoremap <silent> <leader>gL :Gina log --graph -100<CR>
-nnoremap <silent> <leader>gd :!git diff<CR>
-nnoremap <silent> <leader>gs :!git status<CR>
-nnoremap <leader>gbb :call popup_atcursor(systemlist('git branch'), #{ moved: "any", border: [], minwidth: &columns/3, minheight: &lines/4 })<CR>
-nnoremap <leader>gp :!git push origin main 
-nnoremap <leader>oG :Gina browse :<CR>
-xnoremap <leader>oG :Gina browse :<CR>
-nnoremap <leader>gg :Gina log -p -G""<Left>
-
-nnoremap <leader>gn :!git commit -a -m ""<Left>
-nnoremap <silent> <leader>gu :silent !git add -u<CR>
-nnoremap <silent> <leader>ga :!git add %<CR>
 
 "winresizer
 nnoremap <silent> <C-r> :WinResizerStartResize<CR>
 
 "github copilot
 let g:copilot_node_command = "/usr/bin/node"
+let g:copilot_filetypes = {
+    \ 'satysfi': v:false,
+    \ }
 "ToSnipet
 let g:tosnippet#save_directory = $HOME."/.config/nvim/neosnippet-snippet/"
 
